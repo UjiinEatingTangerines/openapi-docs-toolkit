@@ -3,3 +3,7 @@ plugins {
 }
 rootProject.name = "openapi-docs-toolkits"
 
+include("openapi-core")
+include("openapi-web")
+include("openapi-starter")
+include("example-app")
