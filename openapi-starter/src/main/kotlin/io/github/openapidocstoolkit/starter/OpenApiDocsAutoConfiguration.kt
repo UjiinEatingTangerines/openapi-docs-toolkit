@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @EnableConfigurationProperties(OpenApiDocsProperties::class)
-@ConditionalOnProperty(prefix = "openapi-dos", name = ["enabled"], havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "openapi-docs", name = ["enabled"], havingValue = "true", matchIfMissing = true)
 class OpenApiDocsAutoConfiguration {
     @Bean
     fun openApiAutoCollector(fetcher: OpenApiFetcher, props: OpenApiDocsProperties): OpenApiAutoCollector{
