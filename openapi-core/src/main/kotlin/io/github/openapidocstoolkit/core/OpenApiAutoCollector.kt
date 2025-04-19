@@ -15,6 +15,7 @@ class OpenApiAutoCollector(
             return
         }
 
+        // 버전별 다른 엔드포인트는 어떻게 구현해볼지 고민
         for (version in props.versions) {
             try {
                 println("[OPENAPI-DOCS-TOOLKIT] [INFO] '$version' 버전의 OpenAPI 문서를 처리합니다...")
