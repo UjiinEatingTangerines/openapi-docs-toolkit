@@ -25,14 +25,14 @@ class OpenApiFetcher {
                 /*if (!response.isSuccessful) {
                     throw IllegalStateException("OpenAPI fetch failed with code ${response.code} from $endpoint")
                 }*/
-                require(response.isSuccessful) { "OpenAPI fetch failed with code ${response.code} from $endpoint" }
+                require(response.isSuccessful) { "OpenAPI 문서를 가져오는데 실패했습니다. 응답 코드:  ${response.code}, 엔드포인트: $endpoint" }
 
                 // 결과값 체크
                 // sonarQube 요청으로 수정 - 가독성 및 중복성의 오류가 있을 수 있으며, kotlin 함수가 있다면 사용하는 것이 좋음
                 // requireNotNull 내부적으로 IllegalStateException 를 발생하지 않지만 가시성 향상을 위해 사용
                 /*val body = response.body?.string()
                     ?: throw IllegalStateException("OpenAPI response body is null from $endpoint")*/
-                val body = requireNotNull(response.body?.string()) { "OpenAPI response body is null from $endpoint" }
+                val body = requireNotNull(response.body?.string()) { "OpenAPI 응답 본문이 비어있습니다. 엔드포인트: $endpoint" }
 
                 return body
             }
